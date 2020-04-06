@@ -1,0 +1,13 @@
+
+##################################################
+#ANE Research Inc.
+#Alfalite Corpration
+##################################################
+
+ErrorDocument 400 http://aneresearch.rf.gd/ErrorPages/400.html
+ErrorDocument 401 http://aneresearch.rf.gd/ErrorPages/401.html
+ErrorDocument 403 http://aneresearch.rf.gd/ErrorPages/403.html
+ErrorDocument 404 http://alfalite.rf.gd/ErrorPgs/404.html
+ErrorDocument 503 http://alfalite.rf.gd/ErrorPgs/503.html
+DirectoryIndex index.html Index.html index.php
+#Change DirectoryIndex back to index.html
