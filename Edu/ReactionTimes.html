@@ -9,12 +9,14 @@
   <title>Reaction Times</title>
 </head>
 
-<body style="background-color: white; color: black; font-family: Calibri;">
-    <center><h1>Reaction Times Experiment</h1>
-    <p>Your goal is to press the Start button, wait for green to show, then press stop.</p>
+<body style="background-color: #e0e0e0; color: black; font-family: Calibri;">
+    <center>
+    <div id="non-interactive"><h1>Reaction Times Experiment</h1><p>Your goal is to press the Start button, wait for for the clock to hit 0, then press stop. For extra accessability, the 0 will be <i style="color: green;">green</i>, the 2 and 3 <i style="color: red;">red</i>, and the Ready <i style="color: yellow;">yellow</i>.
+    <b>Please record your reaction time</b> then send it to me. Email me at <a href="mailto:archmantella13@gmail.com">archmantella13@gmail.com</a>. Submissions <i>due</i> by 5/14/2020, 5:30 PM PST.</p><hr></div>
     <h1 id="ind-bg">Ready</h1>
     <div id="controls"><hr><span id="btn"><button>Start</button></span> <button id="reset" onclick="reset();">Reset</button><hr></div>
     <div>Seconds: <span id="time">0</span></div>
+    <!--<button onclick='test();'>-->
     <script id="runner">
     function wait(ms){
      var d = new Date();
@@ -23,19 +25,28 @@
      while(d2-d < ms);
     }
 
+    //function test(){
+      //alert("single quotes test");
+    //}
+
     function reset(){
-      $( "#ind-bg" ).css("color", "black");
-      $( "#btn" ).html("Start")
+      $( "#ind-bg" ).html("Ready");
+      $( "#btn" ).html("<button>Start</button>")
     }
 
     function fnt2(){
-      $( "#btn" ).html("Press");
+      $( "#btn" ).html("<button onclick='reactiontime();'>Press</button>");
       $( "#ind-bg" ).html("0");
+    }
+
+    function reactiontime(){
+      var time = 1
+      alert("Your reaction time is " + time + " milliseconds");
     }
 
     $(function(){
     $('#btn').click(function() {
-      $( "#btn" ).html("Wait...")
+      $( "#btn" ).html("<button>Wait</button>")
       $( "#ind-bg" ).html("3");
       window.setTimeout(function(){
         $( "#ind-bg" ).html("2");
@@ -51,7 +62,7 @@
       //await wait( 1000 );
       //$( "#ind-bg" ).html("1", "green");
       //await wait( 1000 );
-      $( "#btn" ).html("Wait...")
+      $( "#btn" ).html("<button>Wait</button>")
       $( "#ind-bg" ).html("3");
     });
    });
