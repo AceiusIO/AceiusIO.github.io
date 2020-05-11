@@ -1,0 +1,63 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" >
+  <link rel='icon' href='logo.ico' type='image/x-icon'/ >
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- It's not a laser! It's a little light that blinks!-->
+  <title>Reaction Times</title>
+  <!--<style>-->
+  	.blink-bg{
+  		background-color: Green;
+  		padding: 10px;
+  		display: inline-block;
+  		animation: blinkingBackground 2s 1;
+      blinkingBackground.style.webkitAnimationPlayState = "paused";
+  	}
+  	@keyframes blinkingBackground{
+  		0%		{ background-color: Red;}
+  		25%		{ background-color: Orange;}
+  		50%		{ background-color: Purple;}
+  		75%		{ background-color: Green;}
+  		100%	        { background-color: Green;}
+  	}
+  </style>
+</head>
+
+<body style="background-color: white; color: black; font-family: Calibri;">
+    <center><h1>Reaction Times Experiment</h1>
+    <p>Your goal is to press the Start button, wait for green to show, then press stop.</p>
+    <div class="blink-bg" style="width: 500px; color: #e0e0e0;"><br style="size=500px;"></br></div>
+    <div>Seconds: <span id="time">0</span></div>
+   <!--<input type="button" id="startTimer" value="Start" onclick="start();"><input type="button" id="stopTimer" value="Stop"  onclick="stop();"><input type="button" id="resetTimer" value="Reset"  onclick="reset();"><br/>
+   <script>
+       var timeElapsed = 0;
+       var timerID = -1;
+       function tick() {
+           timeElapsed = timeElapsed + 0.1
+           document.getElementById("time").innerHTML = timeElapsed;
+       }
+
+       function start() {
+           if(timerID == -1){
+               timerID = setInterval(tick, 100);
+           }
+       }
+
+       function stop() {
+           if(timerID != -1){
+               clearInterval(timerID)
+               timerID = -1
+           }
+       }
+
+       function reset() {
+           stop();
+           timeElapsed = -0.1;
+           tick()
+       }
+
+   </script>-->
+</body>
+</html>
