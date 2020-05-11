@@ -7,30 +7,27 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- It's not a laser! It's a little light that blinks!-->
   <title>Reaction Times</title>
-  <!--<style>-->
-  	.blink-bg{
-  		background-color: Green;
-  		padding: 10px;
-  		display: inline-block;
-  		animation: blinkingBackground 2s 1;
-      blinkingBackground.style.webkitAnimationPlayState = "paused";
-  	}
-  	@keyframes blinkingBackground{
-  		0%		{ background-color: Red;}
-  		25%		{ background-color: Orange;}
-  		50%		{ background-color: Purple;}
-  		75%		{ background-color: Green;}
-  		100%	        { background-color: Green;}
-  	}
-  </style>
 </head>
 
 <body style="background-color: white; color: black; font-family: Calibri;">
     <center><h1>Reaction Times Experiment</h1>
     <p>Your goal is to press the Start button, wait for green to show, then press stop.</p>
-    <div class="blink-bg" style="width: 500px; color: #eee0e0;"><br style="size:1000px;"><br style="size:1000px;"></br></div>
-    <button onclick="">Click</button>
+    <div id="blink-bg" style="width: 500px;"><p style="font-size:100px;">Test</p></div>
+    <button id="btn">Click</button>
     <div>Seconds: <span id="time">0</span></div>
+    <script>
+    $(function(){
+    $('#btn').click(function() {
+        $( "#blink-bg" ).css("color", "red");
+        $( "#blink-bg" ).delay( 1000 );
+        $( "#blink-bg" ).css("color", "blue");
+        $( "#blink-bg" ).delay( 1000 );
+        $( "#blink-bg" ).css("color", "green");
+    });
+   });
+    </script>
+  </center>
+
    <!--<input type="button" id="startTimer" value="Start" onclick="start();"><input type="button" id="stopTimer" value="Stop"  onclick="stop();"><input type="button" id="resetTimer" value="Reset"  onclick="reset();"><br/>
    <script>
        var timeElapsed = 0;
