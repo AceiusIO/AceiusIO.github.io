@@ -15,7 +15,7 @@
     <h1 id="ind-bg">Ready</h1>
     <div id="controls"><hr><button id="btn">Start</button> <button id="reset" onclick="reset();">Reset</button><hr></div>
     <div>Seconds: <span id="time">0</span></div>
-    <script>
+    <script id="runner">
     function wait(ms){
      var d = new Date();
      var d2 = null;
@@ -31,12 +31,22 @@
     $(function(){
     $('#btn').click(function() {
       $( "#btn" ).html("Wait...")
-      $( "#ind-bg" ).html("3", "red");
-      await wait( 1000 );
-      $( "#ind-bg" ).html("2", "blue");
-      await wait( 1000 );
-      $( "#ind-bg" ).html("1", "green");
-      await wait( 1000 );
+      $( "#ind-bg" ).html("3");
+      window.setTimeout(function(){
+        $( "#ind-bg" ).html("2");
+        window.setTimeout(function(){
+          $( "#ind-bg" ).html("1");
+                 }, 1000);
+                 window.setTimeout(function(){
+                   $( "#ind-bg" ).html("0", "green");
+                   $( "#btn" ).html("Press")
+                          }, 1000);
+               }, 1000);
+      //await wait( 1000 );
+      //$( "#ind-bg" ).html("2", "blue");
+      //await wait( 1000 );
+      //$( "#ind-bg" ).html("1", "green");
+      //await wait( 1000 );
       $( "#ind-bg" ).html("0", "green");
       $( "#btn" ).html("Press")
     });
