@@ -5,6 +5,7 @@
   <meta charset="utf-8" >
   <link rel='icon' href='logo.ico' type='image/x-icon'/ >
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="stopwatchsource.js"></script>
   <!-- It's not a laser! It's a little light that blinks!-->
   <title>Reaction Times</title>
 </head>
@@ -12,12 +13,14 @@
 <body style="background-color: #e0e0e0; color: black; font-family: Calibri;">
     <center>
     <div id="non-interactive"><h1>Reaction Times Experiment</h1><p>Your goal is to press the Start button, wait for for the clock to hit 0, then press stop. For extra accessability, the 0 will be <i style="color: green;">green</i>, the 2 and 3 <i style="color: red;">red</i>, and the Ready <i style="color: yellow;">yellow</i>.
-    <b>Please record your reaction time</b> then send it to me. Email me at <a href="mailto:archmantella13@gmail.com">archmantella13@gmail.com</a>. Submissions <i>due</i> by 5/14/2020, 5:30 PM PST.</p><hr></div>
-    <h1 id="ind-bg">Ready</h1>
-    <div id="controls"><hr><span id="btn"><button>Start</button></span> <button id="reset" onclick="reset();">Reset</button><hr></div>
-    <div>Seconds: <span id="time">0</span></div>
+    <b>Please record your reaction time</b> then send it to me. Email me at <a href="mailto:archmantella13@gmail.com">archmantella13@gmail.com</a>. Submissions <i>due</i> by 5/14/2020, 5:30 PM PST.</p>
+    <p><b>Note:</b> When you press the button to get your reaction time, the timer will restart. Ignore this. Write down your time, <i style="color: yellow;">reset</i>, and repeat. Please try to repeat this <b>3</b> times.</p><hr></div>
+    <div id="display-container"><br><h1 id="ind-bg" style="color: yellow;">Ready</h1><br>
+    <div id="controls"><hr><span id="btn"><button style="background-color: blue;">Start</button></span> <button id="reset" onclick="reset();" style="background-color: yellow;">Reset</button><hr></div>
+    <span id="time-display-container"><p>Your reaction time is: <span id="time-display"><p></p></span><p> milliseconds</p></span>
     <!--<button onclick='test();'>-->
     <script id="runner">
+
     function wait(ms){
      var d = new Date();
      var d2 = null;
@@ -31,27 +34,32 @@
 
     function reset(){
       $( "#ind-bg" ).html("Ready");
-      $( "#btn" ).html("<button>Start</button>")
+      $( "#ind-bg" ).css("color", "yellow");
+      $( "#btn" ).html("<button style='background-color: blue;'>Start</button>")
     }
 
     function fnt2(){
-      $( "#btn" ).html("<button onclick='reactiontime();'>Press</button>");
+      $( "#btn" ).html("<span id='timerbutton'><button onclick='reactiontime();' style='background-color: green;'>Press</button></span>");
       $( "#ind-bg" ).html("0");
+      $( "#ind-bg" ).css("color", "green");
+      $( "#time-display" ).stopwatch( "start" )
     }
 
     function reactiontime(){
       var time = 1
+      $( "#time-display" ).stopwatch( "stop" )
       alert("Your reaction time is " + time + " milliseconds");
     }
 
     $(function(){
     $('#btn').click(function() {
       $( "#btn" ).html("<button>Wait</button>")
-      $( "#ind-bg" ).html("3");
       window.setTimeout(function(){
         $( "#ind-bg" ).html("2");
+        $( "#ind-bg" ).css("color", "red");
         window.setTimeout(function(){
           $( "#ind-bg" ).html("1");
+          $( "#ind-bg" ).css("color", "red");
                  }, 1000);
                  window.setTimeout(function(){
                    fnt2();
@@ -62,8 +70,9 @@
       //await wait( 1000 );
       //$( "#ind-bg" ).html("1", "green");
       //await wait( 1000 );
-      $( "#btn" ).html("<button>Wait</button>")
+      $( "#btn" ).html("<button style='background-color: red;'>Wait</button>")
       $( "#ind-bg" ).html("3");
+      $( "#ind-bg" ).css("color", "red");
     });
    });
     </script>
