@@ -12,17 +12,33 @@
 <body style="background-color: white; color: black; font-family: Calibri;">
     <center><h1>Reaction Times Experiment</h1>
     <p>Your goal is to press the Start button, wait for green to show, then press stop.</p>
-    <div id="blink-bg" style="width: 500px;"><p style="font-size:100px;">Test</p></div>
-    <button id="btn">Click</button>
+    <h1 id="ind-bg">Ready</h1>
+    <div id="controls"><hr><button id="btn">Start</button> <button id="reset" onclick="reset();">Reset</button><hr></div>
     <div>Seconds: <span id="time">0</span></div>
     <script>
+    function wait(ms){
+     var d = new Date();
+     var d2 = null;
+     do { d2 = new Date(); }
+     while(d2-d < ms);
+    }
+
+    function reset(){
+      $( "#ind-bg" ).css("color", "black");
+      $( "#btn" ).html("Start")
+    }
+
     $(function(){
     $('#btn').click(function() {
-        $( "#blink-bg" ).css("color", "red");
-        $( "#blink-bg" ).delay( 1000 );
-        $( "#blink-bg" ).css("color", "blue");
-        $( "#blink-bg" ).delay( 1000 );
-        $( "#blink-bg" ).css("color", "green");
+      $( "#btn" ).html("Wait...")
+      $( "#ind-bg" ).html("3", "red");
+      await wait( 1000 );
+      $( "#ind-bg" ).html("2", "blue");
+      await wait( 1000 );
+      $( "#ind-bg" ).html("1", "green");
+      await wait( 1000 );
+      $( "#ind-bg" ).html("0", "green");
+      $( "#btn" ).html("Press")
     });
    });
     </script>
