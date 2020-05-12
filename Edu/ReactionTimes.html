@@ -35,7 +35,10 @@
     function reset(){
       $( "#ind-bg" ).html("Ready");
       $( "#ind-bg" ).css("color", "yellow");
+      $( "#btntimer" ).html("<button style='background-color: blue;'>Start</button>")
+      $( "#btntimer" ).attr("id", "btn")
       $( "#btn" ).html("<button style='background-color: blue;'>Start</button>")
+      $( "#btn" ).attr("id", "btn")
     }
 
     function fnt2(){
@@ -43,10 +46,12 @@
       $( "#ind-bg" ).html("0");
       $( "#ind-bg" ).css("color", "green");
       $( "#time-display" ).stopwatch( "start" )
+      $( "#btn" ).attr("id", "btntimer")
     }
 
     function reactiontime(){
       var time = 1
+      reset();
       $( "#time-display" ).stopwatch( "stop" )
       alert("Your reaction time is " + time + " milliseconds");
     }
