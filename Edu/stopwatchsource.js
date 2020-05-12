@@ -1,5 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+//Wait a sec! I made a new stopwatch so this whole thing is usless!
 (function( $ ){
 
     function incrementer(ct, increment) {
